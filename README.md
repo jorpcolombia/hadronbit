@@ -1,6 +1,6 @@
 # HadronBit — Sitio Estático
 
-Reconstrucción estática de **hadronbit.com**, originalmente un sitio en WordPress. Desplegado en Cloudflare Pages.
+Página estática de **hadronbit.com**. Desplegado en Cloudflare Pages.
 
 ## Descripción general
 
