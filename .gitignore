@@ -1,6 +1,9 @@
 # Raw scraped WordPress output — large, not committed
 scraped/
 
+# Build staging dir (used by wrangler deploy)
+dist/
+
 # OS noise
 .DS_Store
 Thumbs.db
