@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HadronBit - Empresa dedicada a la consultoría de ciberseguridad</title>
+  <meta name="description" content="Servicios tecnológicos especializados: mesa de ayuda, auditoría IT, consultoría en ciberseguridad, simulación phishing"/>
+  <link rel="canonical" href="https://www.hadronbit.com/"/>
+  <link rel="icon" href="/wp-content/uploads/2018/10/favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo img { height: 44px; }
+    .nav-menu {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-menu a {
+      font-weight: 500;
+      font-size: 15px;
+      color: #333;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .nav-menu a:hover, .nav-menu a.active {
+      color: #1799cb;
+      border-color: #1799cb;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: #333;
+    }
+
+    /* ── HERO SLIDER ── */
+    .hero {
+      position: relative;
+      height: 420px;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity .6s ease;
+      pointer-events: none;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+    }
+    .slide-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px;
+      color: #fff;
+    }
+    .slide-content h2 {
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-shadow: 0 2px 4px rgba(0,0,0,.4);
+    }
+    .slide-content p {
+      font-size: clamp(14px, 2vw, 18px);
+      margin-bottom: 24px;
+      max-width: 520px;
+      text-shadow: 0 1px 3px rgba(0,0,0,.4);
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-primary { background: #1799cb; color: #fff; }
+    .btn-white { background: #fff; color: #1799cb; }
+
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,.2);
+      border: none;
+      color: #fff;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .slider-arrow:hover { background: rgba(255,255,255,.4); }
+    .slider-arrow.prev { left: 16px; }
+    .slider-arrow.next { right: 16px; }
+
+    .slider-dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .slider-dots button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: transparent;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .slider-dots button.active { background: #fff; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: #1799cb;
+      text-align: center;
+      padding: 28px 20px;
+    }
+    .cta-band h3 {
+      color: #fff;
+      font-size: clamp(16px, 2.5vw, 22px);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .cta-band a {
+      background: #fff;
+      color: #1799cb;
+      padding: 10px 28px;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 4px;
+    }
+    .cta-band a:hover { opacity: .88; }
+
+    /* ── SERVICE CARDS ── */
+    .services {
+      max-width: 1000px;
+      margin: 60px auto 80px;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+    .service-card {
+      flex: 1;
+      min-width: 260px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 14px;
+      border: 1.5px solid #734088;
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+      text-align: center;
+      transition: transform .3s, border-color .3s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: #1799cb;
+    }
+    .service-card i {
+      font-size: 32px;
+      color: #1799cb;
+    }
+    .service-card h3 {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 18px;
+      color: #734088;
+      line-height: 1.3;
+    }
+    .service-card:hover h3 { color: #1799cb; }
+    .service-card p {
+      font-size: 14px;
+      color: #555;
+      text-align: justify;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: #1a1a2e;
+      color: #ccc;
+      padding: 48px 20px 24px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #333;
+    }
+    .footer-brand img { height: 44px; margin-bottom: 12px; }
+    .footer-brand p { font-size: 14px; max-width: 280px; line-height: 1.6; }
+    .footer-contact h4 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .footer-contact p { font-size: 14px; line-height: 1.8; }
+    .footer-contact a { color: #1799cb; }
+    .footer-copyright {
+      max-width: 1200px;
+      margin: 20px auto 0;
+      font-size: 13px;
+      text-align: center;
+      color: #888;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 16px 20px 24px;
+        gap: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.1);
+      }
+      .nav-menu.open { display: flex; }
+      .nav-toggle { display: block; }
+      .hero { height: 320px; }
+      .slide-content { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <img src="/wp-content/uploads/2018/10/logo_300.png" alt="HadronBit"/>
+    </a>
+    <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="/" class="active">Inicio</a></li>
+      <li><a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/">Auditoría</a></li>
+      <li><a href="/serviciosciberseguridad/">Ciberseguridad</a></li>
+      <li><a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/">Servicios TI</a></li>
+      <li><a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO SLIDER -->
+<section class="hero" aria-label="Presentación de servicios">
+  <div class="slide active" id="slide-0">
+    <div class="slide-bg" style="background-image:url('/wp-content/uploads/2019/03/ciberseguridad.jpg')"></div>
+    <div class="slide-content">
+      <h2>¿Sabes qué tan expuesta está tu empresa?</h2>
+      <p>Identifica riesgos y define acciones antes de que ocurra un incidente.</p>
+      <a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/" class="btn btn-primary">Solicitar auditoría</a>
+    </div>
+  </div>
+  <div class="slide" id="slide-1">
+    <div class="slide-bg" style="background-image:url('/wp-content/uploads/2018/10/iStock-656972352.jpg')"></div>
+    <div class="slide-content">
+      <h2>Tecnología y ciberseguridad para empresas que quieren crecer sin riesgos</h2>
+      <p>Transformamos la tecnología en un habilitador del negocio, la operación y el crecimiento.</p>
+      <a href="/serviciosciberseguridad/" class="btn btn-primary">Hablar con especialista</a>
+    </div>
+  </div>
+  <div class="slide" id="slide-2">
+    <div class="slide-bg" style="background-image:url('/wp-content/uploads/2025/03/Designer-1-1.jpeg')"></div>
+    <div class="slide-content">
+      <h2>Deja tu tecnología en manos expertas</h2>
+      <p>Gestionamos tu IT para que tu empresa opere mejor y se enfoque en crecer.</p>
+      <a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/" class="btn btn-primary">Conocer servicios IT</a>
+    </div>
+  </div>
+
+  <button class="slider-arrow prev" aria-label="Anterior" onclick="moveSlide(-1)">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="slider-arrow next" aria-label="Siguiente" onclick="moveSlide(1)">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+  <div class="slider-dots" id="slider-dots">
+    <button class="active" onclick="goSlide(0)" aria-label="Diapositiva 1"></button>
+    <button onclick="goSlide(1)" aria-label="Diapositiva 2"></button>
+    <button onclick="goSlide(2)" aria-label="Diapositiva 3"></button>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h3>
+    ¿Sabes qué tan preparada está tu empresa?
+    <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Evaluar mi empresa</a>
+  </h3>
+</div>
+
+<!-- SERVICE CARDS -->
+<section class="services">
+  <a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/" style="flex:1;min-width:260px;display:contents;">
+    <div class="service-card">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h3>Auditoría de<br/>ciberseguridad</h3>
+      <p>Muchas empresas no saben en qué nivel de seguridad y control se encuentran hasta que enfrentan auditorías o incidentes.</p>
+      <p style="margin-top:8px;">Evaluamos tu entorno bajo marcos como COBIT, COSO, NIST, ISO y NIA para entender dónde estás y definir acciones alineadas al negocio.</p>
+    </div>
+  </a>
+  <a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/" style="flex:1;min-width:260px;display:contents;">
+    <div class="service-card">
+      <i class="fa-solid fa-computer"></i>
+      <h3>Outsourcing<br/>IT</h3>
+      <p>La tecnología puede volverse compleja de gestionar a medida que la empresa crece y evoluciona.</p>
+      <p style="margin-top:8px;">Asumimos la gestión técnica, operativa y estratégica del IT para garantizar estabilidad, eficiencia y alineación con los objetivos del negocio.</p>
+    </div>
+  </a>
+  <a href="/serviciosciberseguridad/" style="flex:1;min-width:260px;display:contents;">
+    <div class="service-card">
+      <i class="fa-solid fa-user-secret"></i>
+      <h3>Análisis de<br/>fraude</h3>
+      <p>En la operación de una empresa pueden existir riesgos en procesos y sistemas que no siempre son visibles.</p>
+      <p style="margin-top:8px;">Analizamos tu información y controles para identificar estas brechas y definir acciones que permitan proteger el negocio y fortalecer su operación.</p>
+    </div>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/wp-content/uploads/2018/10/logo-white-300.png" alt="HadronBit"/>
+      <p>Transformamos la ciberseguridad y la tecnología en decisiones claras para tu negocio</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>
+        <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Formulario de Contacto</a><br/>
+        <strong style="color:#fff;">Dirección:</strong> Carrera 11 # 90-07 OF 509<br/>
+        <strong style="color:#fff;">Cel:</strong> +57 323 220 03 19<br/>
+        Bogotá, Colombia
+      </p>
+    </div>
+  </div>
+  <p class="footer-copyright">Copyright &copy; 2026 HadronBit</p>
+</footer>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('#slider-dots button');
+  let timer = setInterval(() => moveSlide(1), 5000);
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function moveSlide(dir) {
+    clearInterval(timer);
+    showSlide(current + dir);
+    timer = setInterval(() => moveSlide(1), 5000);
+  }
+
+  function goSlide(n) {
+    clearInterval(timer);
+    showSlide(n);
+    timer = setInterval(() => moveSlide(1), 5000);
+  }
+</script>
+</body>
+</html>

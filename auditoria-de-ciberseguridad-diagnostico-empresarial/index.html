@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Auditoría de Ciberseguridad - HadronBit</title>
+  <meta name="description" content="Diagnóstico integral de ciberseguridad para empresas. Identificamos riesgos y definimos un plan claro bajo marcos COBIT, COSO, NIST e ISO."/>
+  <link rel="canonical" href="https://www.hadronbit.com/auditoria-de-ciberseguridad-diagnostico-empresarial/"/>
+  <link rel="icon" href="/wp-content/uploads/2018/10/favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #333; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo img { height: 44px; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-menu a { font-weight: 500; font-size: 15px; color: #333; padding: 4px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+    .nav-menu a:hover, .nav-menu a.active { color: #1799cb; border-color: #1799cb; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 24px; color: #333; }
+
+    .page-content { max-width: 1000px; margin: 0 auto; padding: 0 20px 80px; }
+    .hero-text { text-align: center; padding: 60px 0 40px; }
+    .hero-text h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.3; margin-bottom: 20px; }
+    .hero-text .lead { font-size: 17px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+    .divider { width: 60px; height: 4px; background: #734088; margin: 25px auto; border-radius: 2px; }
+    .hero-text .sub { font-size: 18px; color: #333; line-height: 1.6; margin-bottom: 10px; }
+    .hero-text .sub-bold { font-size: 18px; font-weight: 600; color: #333; margin-bottom: 30px; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 15px; transition: opacity .2s, transform .2s; }
+    .btn:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-purple { background: #734088; color: #fff; }
+
+    h2 { text-align: center; font-size: clamp(20px, 3vw, 28px); margin-bottom: 10px; }
+    .section-lead { max-width: 700px; margin: 10px auto 30px; color: #555; text-align: center; line-height: 1.6; }
+    .section { margin-top: 60px; }
+
+    .cards { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 30px; }
+    .card { flex: 1; min-width: 260px; background: #f5f7fa; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+    .card h3 { margin-top: 0; color: #1799cb; margin-bottom: 12px; }
+    .card ul { padding-left: 18px; }
+    .card ul li { margin-bottom: 6px; line-height: 1.5; }
+    .card p { line-height: 1.6; margin-top: 12px; }
+    .card strong { display: block; color: #1799cb; margin-bottom: 8px; font-size: 15px; }
+    .card.white { background: #fff; border: 1px solid #eee; }
+
+    .dark-box { background: #0B1F3A; color: #fff; padding: 40px 25px; border-radius: 12px; margin-top: 30px; text-align: center; }
+    .dark-box h2 { color: #fff; }
+    .dark-box p { max-width: 700px; margin: 15px auto; font-size: 16px; line-height: 1.6; }
+
+    .deliverable-cards { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 30px; }
+    .dl-dark { flex: 1; min-width: 280px; background: #0B1F3A; color: #fff; padding: 30px; border-radius: 12px; }
+    .dl-dark h3 { color: #1799cb; text-align: center; margin-bottom: 12px; }
+    .dl-dark ul, .dl-light ul { padding-left: 18px; margin-top: 12px; }
+    .dl-dark li, .dl-light li { margin-bottom: 6px; line-height: 1.5; }
+    .dl-light { flex: 1; min-width: 280px; background: #f5f7fa; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+    .dl-light h3 { color: #1799cb; text-align: center; margin-bottom: 12px; }
+
+    .cta-band { background: #734088; text-align: center; padding: 28px 20px; margin-top: 60px; border-radius: 12px; }
+    .cta-band h3 { color: #fff; font-size: clamp(15px, 2.5vw, 20px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; }
+    .cta-band a { background: #fff; color: #1799cb; padding: 10px 28px; font-weight: 600; border-radius: 4px; white-space: nowrap; }
+
+    .site-footer { background: #1a1a2e; color: #ccc; padding: 48px 20px 24px; margin-top: 0; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid #333; }
+    .footer-brand img { height: 44px; margin-bottom: 12px; display: block; }
+    .footer-brand p { font-size: 14px; max-width: 280px; line-height: 1.6; }
+    .footer-contact h4 { color: #fff; font-size: 16px; margin-bottom: 12px; }
+    .footer-contact p { font-size: 14px; line-height: 1.8; }
+    .footer-contact a { color: #1799cb; }
+    .footer-copy { max-width: 1200px; margin: 20px auto 0; font-size: 13px; text-align: center; color: #888; }
+
+    @media (max-width: 700px) {
+      .nav-menu { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 16px 20px 24px; gap: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+      .nav-menu.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><img src="/wp-content/uploads/2018/10/logo_300.png" alt="HadronBit"/></a>
+    <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/" class="active">Auditoría</a></li>
+      <li><a href="/serviciosciberseguridad/">Ciberseguridad</a></li>
+      <li><a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/">Servicios TI</a></li>
+      <li><a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="page-content">
+
+    <div class="hero-text">
+      <h1>¿Podrías ser la próxima empresa en sufrir un ataque sin darte cuenta?</h1>
+      <p class="lead">La mayoría de empresas cree que está protegida… hasta que pierde acceso a su información o enfrenta una fuga de datos.</p>
+      <div class="divider"></div>
+      <p class="sub">En menos de 2 semanas puedes tener claridad total sobre el nivel de riesgo de tu empresa</p>
+      <p class="sub-bold">y un plan claro de qué hacer para protegerla.</p>
+      <a href="https://wa.me/573232200319?text=Hola,%20quiero%20evaluar%20el%20nivel%20de%20seguridad%20de%20mi%20empresa" class="btn btn-purple">Evaluar mi nivel de seguridad</a>
+    </div>
+
+    <section class="section">
+      <h2>EMPRESAS COMO LA TUYA HOY ESTÁN EN RIESGO</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Muchas organizaciones:</h3>
+          <ul>
+            <li>No saben si sus accesos están bien protegidos</li>
+            <li>No tienen visibilidad de vulnerabilidades críticas</li>
+            <li>Dependen de herramientas sin una estrategia clara</li>
+            <li>No cuentan con políticas actualizadas</li>
+            <li>Podrían estar incumpliendo normativas sin saberlo</li>
+          </ul>
+          <p><strong>El problema no es si tienes herramientas… es si realmente estás protegido.</strong></p>
+        </div>
+        <div class="card">
+          <h3>El costo de no hacer nada</h3>
+          <ul>
+            <li>Pérdida de información crítica</li>
+            <li>Parálisis de operaciones (ransomware)</li>
+            <li>Daño reputacional frente a clientes</li>
+            <li>Sanciones legales o regulatorias</li>
+            <li>Pérdidas económicas directas</li>
+          </ul>
+          <p><strong>Una auditoría cuesta mucho menos que un incidente.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="dark-box">
+      <h2>¿Qué es una Auditoría de Ciberseguridad?</h2>
+      <p>Es un diagnóstico integral que evalúa el nivel real de seguridad de tu empresa, identificando vulnerabilidades, riesgos y brechas que pueden afectar la operación y la continuidad del negocio.</p>
+      <p>No es solo un informe técnico: recibes un <strong>plan claro, priorizado y accionable</strong> para proteger tu empresa de forma efectiva.</p>
+    </div>
+
+    <section class="section">
+      <h2>¿Qué incluye la auditoría?</h2>
+      <p class="section-lead">Evaluamos tu organización de forma integral, combinando análisis técnico, estratégico y humano para identificar riesgos reales que impactan el negocio.</p>
+      <div class="cards">
+        <div class="card"><strong>Protección perimetral</strong><p>Evaluación de firewall, accesos externos, exposición en internet y controles de entrada a la red.</p></div>
+        <div class="card"><strong>Identidad y accesos</strong><p>Revisión de usuarios, permisos, autenticación y gestión de accesos críticos.</p></div>
+        <div class="card"><strong>Gobierno y políticas</strong><p>Evaluación de políticas, procesos y nivel de control organizacional en seguridad.</p></div>
+        <div class="card"><strong>Protección de datos</strong><p>Análisis de cómo se almacena, maneja y protege la información sensible del negocio.</p></div>
+        <div class="card"><strong>Cultura y concientización</strong><p>Evaluación del comportamiento del usuario, riesgos humanos y nivel de madurez en seguridad.</p></div>
+        <div class="card"><strong>Gestión de vulnerabilidades</strong><p>Identificación estructurada de debilidades en sistemas y configuraciones que pueden representar riesgos para la organización.</p></div>
+        <div class="card"><strong>Infraestructura y nube</strong><p>Evaluación de entornos on-premise, cloud y configuraciones de seguridad.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Entregables de la auditoría</h2>
+      <p class="section-lead">Nuestro enfoque combina análisis estratégico con una evaluación integral para que entiendas dónde estás expuesto y qué acciones priorizar.</p>
+      <div class="deliverable-cards">
+        <div class="dl-dark">
+          <h3>Informe ejecutivo (nivel negocio)</h3>
+          <p style="line-height:1.6;">Visualiza el nivel real de riesgo de tu empresa en términos claros y cuantificables.</p>
+          <ul>
+            <li>Riesgos priorizados por impacto en el negocio</li>
+            <li>Traducción de brechas a impacto operativo y financiero</li>
+            <li>Radar de madurez (estado actual vs objetivo)</li>
+            <li>Base para toma de decisiones gerenciales</li>
+          </ul>
+        </div>
+        <div class="dl-light">
+          <h3>Plan de mejora y roadmap</h3>
+          <p style="line-height:1.6;">Lineamientos claros y priorizados para fortalecer la seguridad de tu empresa de forma progresiva.</p>
+          <ul>
+            <li>Identificación de brechas de seguridad</li>
+            <li>Recomendaciones específicas por dominio</li>
+            <li>Plan de acción priorizado por riesgo</li>
+            <li>Roadmap de implementación por fases</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Beneficios para tu empresa</h2>
+      <p class="section-lead">Más que identificar problemas, la auditoría te permite tomar decisiones estratégicas para proteger y hacer crecer tu negocio de forma segura.</p>
+      <div class="cards">
+        <div class="card white">
+          <strong>Detectas riesgos antes de incidentes</strong>
+          <p>Identifica vulnerabilidades antes de que se conviertan en ataques reales.</p>
+        </div>
+        <div class="card white">
+          <strong>Decisiones basadas en datos</strong>
+          <p>Obtén claridad total de tu nivel de seguridad y prioriza correctamente.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <h3>
+        Convierte la ciberseguridad en tu ventaja competitiva: agenda tu diagnóstico ahora.
+        <a href="https://wa.me/573232200319?text=Hola,%20quiero%20evaluar%20el%20nivel%20de%20seguridad%20de%20mi%20empresa">¡Agendar!</a>
+      </h3>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/wp-content/uploads/2018/10/logo-white-300.png" alt="HadronBit"/>
+      <p>Transformamos la ciberseguridad y la tecnología en decisiones claras para tu negocio</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>
+        <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Formulario de Contacto</a><br/>
+        <strong style="color:#fff;">Dirección:</strong> Carrera 11 # 90-07 OF 509<br/>
+        <strong style="color:#fff;">Cel:</strong> +57 323 220 03 19<br/>
+        Bogotá, Colombia
+      </p>
+    </div>
+  </div>
+  <p class="footer-copy">Copyright &copy; 2026 HadronBit</p>
+</footer>
+
+</body>
+</html>

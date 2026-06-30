@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contacto - HadronBit</title>
+  <meta name="description" content="Contáctanos para servicios de tecnología y ciberseguridad en Colombia. Bogotá — +57 323 220 03 19"/>
+  <link rel="canonical" href="https://www.hadronbit.com/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/"/>
+  <link rel="icon" href="/wp-content/uploads/2018/10/favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #333; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo img { height: 44px; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-menu a { font-weight: 500; font-size: 15px; color: #333; padding: 4px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+    .nav-menu a:hover, .nav-menu a.active { color: #1799cb; border-color: #1799cb; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 24px; color: #333; }
+
+    .contact-wrap { max-width: 1000px; margin: 60px auto 80px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 48px; }
+
+    .contact-info { flex: 1; min-width: 260px; }
+    .contact-info h1 { font-size: clamp(22px, 3vw, 32px); margin-bottom: 28px; }
+    .info-row { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+    .info-row i { font-size: 18px; color: #1799cb; margin-top: 3px; flex-shrink: 0; }
+    .info-row .label { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2px; }
+    .info-row p { font-size: 15px; line-height: 1.6; }
+    .info-row a { color: #1799cb; }
+
+    .map-wrap { margin-top: 28px; border-radius: 12px; overflow: hidden; }
+    .map-wrap iframe { display: block; width: 100%; height: 280px; border: 0; }
+
+    .contact-form { flex: 1; min-width: 280px; }
+    .contact-form h2 { font-size: 22px; margin-bottom: 20px; }
+
+    .wa-cta { background: #25D366; color: #fff; padding: 16px 20px; border-radius: 12px; display: flex; align-items: center; gap: 14px; margin-bottom: 28px; transition: opacity .2s; }
+    .wa-cta:hover { opacity: .9; }
+    .wa-cta i { font-size: 28px; flex-shrink: 0; }
+    .wa-cta .wa-text p:first-child { font-weight: 600; font-size: 15px; }
+    .wa-cta .wa-text p:last-child { font-size: 13px; opacity: .9; margin-top: 2px; }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: #555; }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 10px 13px; border: 1.5px solid #ddd; border-radius: 8px;
+      font-size: 15px; font-family: inherit; transition: border-color .2s; background: #fff; color: #333;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #1799cb; }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .btn-submit { width: 100%; padding: 13px; background: #1799cb; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background .2s, transform .2s; }
+    .btn-submit:hover { background: #1488b5; transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: .6; cursor: default; transform: none; }
+    .form-note { font-size: 12px; color: #888; margin-top: 10px; text-align: center; }
+    .form-note a { color: #1799cb; }
+    #form-success { display: none; background: #e8f5e9; color: #2e7d32; padding: 14px; border-radius: 8px; margin-top: 16px; text-align: center; font-weight: 500; }
+
+    .site-footer { background: #1a1a2e; color: #ccc; padding: 48px 20px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid #333; }
+    .footer-brand img { height: 44px; margin-bottom: 12px; display: block; }
+    .footer-brand p { font-size: 14px; max-width: 280px; line-height: 1.6; }
+    .footer-contact h4 { color: #fff; font-size: 16px; margin-bottom: 12px; }
+    .footer-contact p { font-size: 14px; line-height: 1.8; }
+    .footer-contact a { color: #1799cb; }
+    .footer-copy { max-width: 1200px; margin: 20px auto 0; font-size: 13px; text-align: center; color: #888; }
+
+    @media (max-width: 700px) {
+      .nav-menu { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 16px 20px 24px; gap: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+      .nav-menu.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><img src="/wp-content/uploads/2018/10/logo_300.png" alt="HadronBit"/></a>
+    <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/">Auditoría</a></li>
+      <li><a href="/serviciosciberseguridad/">Ciberseguridad</a></li>
+      <li><a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/">Servicios TI</a></li>
+      <li><a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/" class="active">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="contact-wrap">
+
+    <div class="contact-info">
+      <h1>Hablemos</h1>
+      <div class="info-row">
+        <i class="fa-solid fa-phone"></i>
+        <div><p class="label">Teléfono / WhatsApp</p><p><a href="https://wa.me/573232200319">+57 323 220 03 19</a></p></div>
+      </div>
+      <div class="info-row">
+        <i class="fa-solid fa-envelope"></i>
+        <div><p class="label">Correo</p><p><a href="mailto:Contacto@hadronbit.com">Contacto@hadronbit.com</a></p></div>
+      </div>
+      <div class="info-row">
+        <i class="fa-solid fa-location-dot"></i>
+        <div><p class="label">Dirección</p><p>Carrera 11 # 90-07 OF 509<br/>Bogotá, Colombia</p></div>
+      </div>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.558445446466!2d-74.05145192432376!3d4.672519641899763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a8c3ec192a9%3A0x6c904440a4405ab3!2sCra.%2011%20%2390-07%2C%20Bogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sus!4v1746733118848!5m2!1ses!2sus"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación HadronBit Bogotá">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h2>Envíanos un mensaje</h2>
+      <a class="wa-cta" href="https://wa.me/573232200319?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios">
+        <i class="fa-brands fa-whatsapp"></i>
+        <div class="wa-text">
+          <p>Escríbenos por WhatsApp</p>
+          <p>Respuesta rápida — +57 323 220 03 19</p>
+        </div>
+      </a>
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" required placeholder="Tu nombre"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required placeholder="tu@empresa.com"/>
+        </div>
+        <div class="form-group">
+          <label for="service">Servicio de interés</label>
+          <select id="service" name="service">
+            <option value="">Seleccionar...</option>
+            <option>Auditoría de ciberseguridad</option>
+            <option>Consultoría en ciberseguridad</option>
+            <option>Outsourcing IT / Mesa de ayuda</option>
+            <option>Simulación de phishing</option>
+            <option>Microsoft 365 / Copilot</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" required placeholder="Cuéntanos sobre tu empresa y lo que necesitas..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Enviar mensaje</button>
+        <p class="form-note">También puedes escribirnos a <a href="mailto:Contacto@hadronbit.com">Contacto@hadronbit.com</a></p>
+        <div id="form-success">¡Mensaje enviado! Te contactaremos pronto.</div>
+      </form>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/wp-content/uploads/2018/10/logo-white-300.png" alt="HadronBit"/>
+      <p>Transformamos la ciberseguridad y la tecnología en decisiones claras para tu negocio</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>
+        <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Formulario de Contacto</a><br/>
+        <strong style="color:#fff;">Dirección:</strong> Carrera 11 # 90-07 OF 509<br/>
+        <strong style="color:#fff;">Cel:</strong> +57 323 220 03 19<br/>
+        Bogotá, Colombia
+      </p>
+    </div>
+  </div>
+  <p class="footer-copy">Copyright &copy; 2026 HadronBit</p>
+</footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, { method: 'POST', body: new FormData(this), headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        this.reset();
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        btn.textContent = 'Error — escríbenos por WhatsApp';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error de red — escríbenos por WhatsApp';
+      btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

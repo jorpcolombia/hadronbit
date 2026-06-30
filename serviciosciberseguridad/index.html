@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Servicios de Ciberseguridad - HadronBit</title>
+  <meta name="description" content="Diagnóstico, consultoría, análisis de vulnerabilidades, simulación de phishing y análisis de riesgo de fraude para empresas en Colombia."/>
+  <link rel="canonical" href="https://www.hadronbit.com/serviciosciberseguridad/"/>
+  <link rel="icon" href="/wp-content/uploads/2018/10/favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #333; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo img { height: 44px; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-menu a { font-weight: 500; font-size: 15px; color: #333; padding: 4px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+    .nav-menu a:hover, .nav-menu a.active { color: #1799cb; border-color: #1799cb; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 24px; color: #333; }
+
+    .page-hero { text-align: center; padding: 60px 20px 40px; max-width: 800px; margin: 0 auto; }
+    .page-hero h1 { font-size: clamp(24px, 4vw, 38px); margin-bottom: 16px; }
+    .page-hero p { font-size: 17px; color: #555; line-height: 1.6; }
+
+    .services-grid { max-width: 1100px; margin: 0 auto 80px; padding: 0 20px; display: flex; flex-wrap: wrap; gap: 25px; margin-top: 30px; }
+
+    .svc { flex: 1; min-width: 260px; padding: 25px; border-radius: 12px; }
+    .svc.white { background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+    .svc.blue { background: #eaf4fb; }
+    .svc strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .svc.white strong { color: #1799cb; }
+    .svc.blue strong { color: #734088; }
+    .svc-icon { display: flex; justify-content: center; margin: 12px 0; }
+    .svc.white .svc-icon i { font-size: 28px; color: #1799cb; }
+    .svc.blue .svc-icon i { font-size: 28px; color: #734088; }
+    .svc p { font-size: 14px; line-height: 1.6; color: #444; }
+
+    .cta-band { background: #734088; text-align: center; padding: 28px 20px; margin: 0 20px 60px; border-radius: 12px; max-width: 1060px; margin-left: auto; margin-right: auto; }
+    .cta-band h3 { color: #fff; font-size: clamp(15px, 2.5vw, 20px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; }
+    .cta-band a { background: #fff; color: #1799cb; padding: 10px 28px; font-weight: 600; border-radius: 4px; white-space: nowrap; }
+
+    .site-footer { background: #1a1a2e; color: #ccc; padding: 48px 20px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid #333; }
+    .footer-brand img { height: 44px; margin-bottom: 12px; display: block; }
+    .footer-brand p { font-size: 14px; max-width: 280px; line-height: 1.6; }
+    .footer-contact h4 { color: #fff; font-size: 16px; margin-bottom: 12px; }
+    .footer-contact p { font-size: 14px; line-height: 1.8; }
+    .footer-contact a { color: #1799cb; }
+    .footer-copy { max-width: 1200px; margin: 20px auto 0; font-size: 13px; text-align: center; color: #888; }
+
+    @media (max-width: 700px) {
+      .nav-menu { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 16px 20px 24px; gap: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+      .nav-menu.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><img src="/wp-content/uploads/2018/10/logo_300.png" alt="HadronBit"/></a>
+    <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/">Auditoría</a></li>
+      <li><a href="/serviciosciberseguridad/" class="active">Ciberseguridad</a></li>
+      <li><a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/">Servicios TI</a></li>
+      <li><a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <h1>Servicios de Ciberseguridad para Empresas</h1>
+    <p>Te ayudamos a entender dónde estás expuesto y qué debes hacer para proteger tu empresa, combinando análisis de riesgo, revisión de sistemas y definición de acciones concretas.</p>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc white">
+      <strong>Diagnóstico de seguridad y plan de acción</strong>
+      <div class="svc-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+      <p>Analizamos el estado actual de tu empresa para identificar riesgos y debilidades, y definimos un plan de acción priorizado con las medidas necesarias para mejorar tu seguridad.</p>
+    </div>
+    <div class="svc blue">
+      <strong>Consultoría en ciberseguridad</strong>
+      <div class="svc-icon"><i class="fa-solid fa-road-lock"></i></div>
+      <p>Diseñamos y fortalecemos la estrategia de seguridad de tu empresa, abordando resiliencia cibernética, cumplimiento de estándares (NIST, ISO), continuidad de negocio y adopción segura de tecnologías como la inteligencia artificial.</p>
+    </div>
+    <div class="svc white">
+      <strong>Análisis de vulnerabilidades</strong>
+      <div class="svc-icon"><i class="fa-solid fa-lock-open"></i></div>
+      <p>Revisamos configuraciones y sistemas para detectar debilidades que podrían ser aprovechadas en un ataque.</p>
+    </div>
+    <div class="svc blue">
+      <strong>Simulación de phishing</strong>
+      <div class="svc-icon"><i class="fa-solid fa-envelope-circle-check"></i></div>
+      <p>Simulamos ataques reales de phishing utilizando una plataforma que mide el comportamiento de los usuarios (apertura, clics y exposición), e incluimos capacitación dirigida a quienes resultan más vulnerables.</p>
+    </div>
+    <div class="svc white">
+      <strong>Evaluación automatizada de seguridad</strong>
+      <div class="svc-icon"><i class="fa-solid fa-robot"></i></div>
+      <p>Evaluamos continuamente la exposición de tu empresa frente a amenazas como ransomware mediante pentesting automatizado, identificando riesgos en Directorio Activo, aplicaciones web, APIs y entornos en la nube como AWS.</p>
+    </div>
+    <div class="svc blue">
+      <strong>Análisis de riesgo de fraude apoyado en tecnología</strong>
+      <div class="svc-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+      <p>Analizamos la configuración de sistemas (ERP), la segregación de funciones y los controles internos para identificar riesgos de fraude en procesos críticos del negocio y debilidades que pueden generar pérdidas financieras.</p>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>
+      Convierte la ciberseguridad en tu ventaja competitiva
+      <a href="https://wa.me/573232200319?text=Hola,%20quiero%20evaluar%20el%20nivel%20de%20seguridad%20de%20mi%20empresa">¡Agendar!</a>
+    </h3>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/wp-content/uploads/2018/10/logo-white-300.png" alt="HadronBit"/>
+      <p>Transformamos la ciberseguridad y la tecnología en decisiones claras para tu negocio</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>
+        <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Formulario de Contacto</a><br/>
+        <strong style="color:#fff;">Dirección:</strong> Carrera 11 # 90-07 OF 509<br/>
+        <strong style="color:#fff;">Cel:</strong> +57 323 220 03 19<br/>
+        Bogotá, Colombia
+      </p>
+    </div>
+  </div>
+  <p class="footer-copy">Copyright &copy; 2026 HadronBit</p>
+</footer>
+
+</body>
+</html>

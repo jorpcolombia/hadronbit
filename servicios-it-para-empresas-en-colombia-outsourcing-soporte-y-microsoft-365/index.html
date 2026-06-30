@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Servicios IT para Empresas - HadronBit</title>
+  <meta name="description" content="Outsourcing IT, mesa de ayuda, Microsoft 365, migración de correo y virtualización de aplicaciones para empresas en Colombia."/>
+  <link rel="canonical" href="https://www.hadronbit.com/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/"/>
+  <link rel="icon" href="/wp-content/uploads/2018/10/favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #333; background: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-header { position: sticky; top: 0; z-index: 100; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo img { height: 44px; }
+    .nav-menu { display: flex; gap: 32px; list-style: none; }
+    .nav-menu a { font-weight: 500; font-size: 15px; color: #333; padding: 4px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+    .nav-menu a:hover, .nav-menu a.active { color: #1799cb; border-color: #1799cb; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 24px; color: #333; }
+
+    .page-hero { text-align: center; padding: 60px 20px 40px; max-width: 900px; margin: 0 auto; }
+    .page-hero h1 { font-size: clamp(24px, 4vw, 40px); margin-bottom: 16px; }
+    .page-hero p { font-size: 18px; color: #666; max-width: 700px; margin: 0 auto 28px; line-height: 1.6; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 15px; transition: opacity .2s, transform .2s; }
+    .btn:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-purple { background: #734088; color: #fff; }
+
+    .services-grid { max-width: 1100px; margin: 10px auto 0; padding: 0 20px 80px; display: flex; flex-wrap: wrap; gap: 25px; }
+
+    .svc { flex: 1; min-width: 260px; padding: 25px; border-radius: 12px; }
+    .svc.blue { background: #eaf4fb; }
+    .svc.white { background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+    .svc.gray { background: #f5f7fa; }
+    .svc strong { display: block; font-size: 16px; font-weight: 600; text-align: center; margin-bottom: 12px; padding-top: 4px; }
+    .svc.blue strong, .svc.gray strong { color: #734088; }
+    .svc.white strong { color: #1799cb; }
+    .svc p { font-size: 14px; line-height: 1.6; color: #444; text-align: justify; margin-top: 8px; }
+
+    .cta-band { background: #1799cb; text-align: center; padding: 28px 20px; margin: 0 20px 60px; border-radius: 12px; max-width: 1060px; margin-left: auto; margin-right: auto; }
+    .cta-band h3 { color: #fff; font-size: clamp(15px, 2.5vw, 20px); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; }
+    .cta-band a { background: #fff; color: #734088; padding: 10px 28px; font-weight: 600; border-radius: 4px; white-space: nowrap; }
+
+    .site-footer { background: #1a1a2e; color: #ccc; padding: 48px 20px 24px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; padding-bottom: 32px; border-bottom: 1px solid #333; }
+    .footer-brand img { height: 44px; margin-bottom: 12px; display: block; }
+    .footer-brand p { font-size: 14px; max-width: 280px; line-height: 1.6; }
+    .footer-contact h4 { color: #fff; font-size: 16px; margin-bottom: 12px; }
+    .footer-contact p { font-size: 14px; line-height: 1.8; }
+    .footer-contact a { color: #1799cb; }
+    .footer-copy { max-width: 1200px; margin: 20px auto 0; font-size: 13px; text-align: center; color: #888; }
+
+    @media (max-width: 700px) {
+      .nav-menu { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: #fff; padding: 16px 20px 24px; gap: 16px; box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+      .nav-menu.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/"><img src="/wp-content/uploads/2018/10/logo_300.png" alt="HadronBit"/></a>
+    <button class="nav-toggle" aria-label="Menú" onclick="document.getElementById('nav-menu').classList.toggle('open')">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/auditoria-de-ciberseguridad-diagnostico-empresarial/">Auditoría</a></li>
+      <li><a href="/serviciosciberseguridad/">Ciberseguridad</a></li>
+      <li><a href="/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/" class="active">Servicios TI</a></li>
+      <li><a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="page-hero">
+    <h1>Servicios IT para empresas que necesitan operar sin interrupciones</h1>
+    <p>Gestionamos y optimizamos tu tecnología para que tu empresa funcione de forma eficiente, segura y escalable.</p>
+    <a href="https://wa.me/573232200319?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20servicios%20IT" class="btn btn-purple">Solicitar soporte TI</a>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc blue">
+      <strong>Outsourcing IT</strong>
+      <p>Nos encargamos de la gestión integral del área de IT de tu empresa, cubriendo lo técnico, lo operativo y la estrategia, para que la tecnología deje de ser un problema y se convierta en un habilitador del negocio.</p>
+      <p>Gestionamos infraestructura, ciberseguridad, soporte y mesa de ayuda bajo un modelo flexible por <strong>bolsa de horas</strong>, con planes mensuales, trimestrales, semestrales o anuales.</p>
+    </div>
+    <div class="svc white">
+      <strong>Mesa de ayuda</strong>
+      <p>Brindamos soporte técnico básico e intermedio, incluyendo gestión de incidencias, soporte a equipos Windows y Mac, mantenimiento preventivo y correctivo, soporte en redes y conectividad, y atención especializada en herramientas Microsoft, bajo un modelo flexible por demanda o mediante contratos por horas.</p>
+    </div>
+    <div class="svc gray">
+      <strong>Migración automatizada de correo</strong>
+      <p>Realizamos migraciones de correo de forma automatizada, segura y sin pérdida de información, asegurando la continuidad del servicio durante todo el proceso.</p>
+      <p>Migramos plataformas como Microsoft 365 y Google Workspace, incluyendo correos, calendarios, contactos y archivos en OneDrive y Google Drive.</p>
+    </div>
+    <div class="svc blue">
+      <strong>Adopción de Microsoft y Copilot</strong>
+      <p>Acompañamos a tu empresa en la adopción de herramientas Microsoft 365, asegurando que los usuarios las utilicen de forma eficiente en su día a día.</p>
+      <p>Implementamos Microsoft Copilot para automatizar tareas y mejorar la productividad, e incluimos capacitación en Teams, SharePoint y Loop.</p>
+    </div>
+    <div class="svc white">
+      <strong>Virtualización de aplicaciones</strong>
+      <p>Implementamos virtualización de aplicaciones con Parallels, permitiendo a los usuarios acceder a sistemas empresariales desde cualquier dispositivo sin depender de infraestructura compleja.</p>
+      <p>Es una alternativa más ágil y económica frente a soluciones como Citrix, ideal para centralizar aplicaciones, mejorar la seguridad y habilitar el trabajo remoto de forma eficiente.</p>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>
+      ¿Listo para optimizar tu tecnología?
+      <a href="https://wa.me/573232200319?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20servicios%20IT">Hablar con un especialista</a>
+    </h3>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/wp-content/uploads/2018/10/logo-white-300.png" alt="HadronBit"/>
+      <p>Transformamos la ciberseguridad y la tecnología en decisiones claras para tu negocio</p>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <p>
+        <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Formulario de Contacto</a><br/>
+        <strong style="color:#fff;">Dirección:</strong> Carrera 11 # 90-07 OF 509<br/>
+        <strong style="color:#fff;">Cel:</strong> +57 323 220 03 19<br/>
+        Bogotá, Colombia
+      </p>
+    </div>
+  </div>
+  <p class="footer-copy">Copyright &copy; 2026 HadronBit</p>
+</footer>
+
+</body>
+</html>
