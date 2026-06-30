@@ -97,20 +97,4 @@ Puedes editar este sitio de forma conversacional usando **Claude Cowork** — un
 
 - Puedes editar varias páginas en una misma sesión — simplemente sigue describiendo los cambios.
 - Para deshacer un cambio antes de hacer commit: `git checkout -- <archivo>` o pide *"Revierte ese último cambio"*.
-- Para previsualizar localmente, abre cualquier `index.html` en el navegador o levanta un servidor simple:
-  ```bash
-  npx serve .
-  ```
-
-## Formulario de contacto
-
-Los formularios de WordPress fueron reemplazados por un proveedor estático (Formspree o Web3Forms). Las URLs del atributo `action` no deben contener claves de API en el código fuente.
-
-## Scraping (referencia)
-
-El sitio original fue descargado con `wget`. El resultado sin procesar está en `.gitignore` bajo `scraped/`.
-
-```bash
-wget --mirror --convert-links --adjust-extension --page-requisites \
-     --no-parent --wait=1 -P scraped/ https://hadronbit.com/
-```
+- Para previsualizar localmente, abre cualquier `index.html` en el navegador
