@@ -1,151 +1,116 @@
-# HadronBit — Static Site Migration
+# HadronBit — Sitio Estático
 
-Migration of hadronbit.com from WordPress to a fully static site deployable on GitHub Pages / Cloudflare Pages.
+Reconstrucción estática de **hadronbit.com**, originalmente un sitio en WordPress. Desplegado en Cloudflare Pages.
 
----
+## Descripción general
 
-## Goal
+HTML/CSS/JS puro — sin frameworks ni pasos de compilación. Las páginas están organizadas en una estructura de carpetas con URLs limpias y se despliegan tal cual en Cloudflare Pages (principal) o GitHub Pages (respaldo).
 
-Scrape the live WordPress site at `hadronbit.com`, convert it to clean static HTML/CSS/JS, and deploy it as a zero-dependency static site. No build step, no framework required.
-
----
-
-## Phase 1 — Scrape the live site
-
-Use `wget` to crawl the live WordPress site and download a complete offline copy.
-
-```bash
-wget --mirror \
-     --convert-links \
-     --adjust-extension \
-     --page-requisites \
-     --no-parent \
-     --wait=1 \
-     -P scraped/ \
-     https://hadronbit.com/
-```
-
-This downloads all HTML pages, images, CSS, JS, and fonts into `scraped/hadronbit.com/`.
-
----
-
-## Phase 2 — Audit & clean
-
-- Review the scraped output: `scraped/hadronbit.com/`
-- Identify pages (home, about, services, blog, contact, etc.)
-- Remove WordPress-specific cruft: admin bars, login links, query strings, emoji JS, etc.
-- Strip `?ver=` cache-busting params from asset URLs
-- Consolidate or remove duplicate/unused assets
-
----
-
-## Phase 3 — Restructure as a clean static site
-
-Target folder layout:
+## Estructura
 
 ```
-/                   ← root of the repo
+/
 ├── index.html
-├── about/
-│   └── index.html
-├── services/
-│   └── index.html
-├── blog/
-│   ├── index.html
-│   └── post-slug/
-│       └── index.html
-├── contact/
-│   └── index.html
+├── about/index.html
+├── services/index.html
+├── contact/index.html
 ├── assets/
 │   ├── css/
 │   ├── js/
 │   ├── fonts/
 │   └── images/
-├── _redirects          ← Cloudflare Pages redirect rules (if needed)
-├── _headers            ← Cloudflare Pages custom headers (cache, security)
+├── _redirects          ← Reglas de redirección de Cloudflare Pages
+├── _headers            ← Cabeceras de caché y seguridad
 └── 404.html
 ```
 
----
+## Páginas
 
-## Phase 4 — Fix & polish
+| URL | Archivo |
+|-----|---------|
+| `/` | `index.html` |
+| `/auditoria-de-ciberseguridad-diagnostico-empresarial/` | `auditoria-.../index.html` |
+| `/serviciosciberseguridad/` | `serviciosciberseguridad/index.html` |
+| `/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/` | `servicios-it-.../index.html` |
+| `/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/` | `contacto-.../index.html` |
 
-- Update all internal links to be root-relative (`/about/`, `/services/`)
-- Replace WordPress REST API calls or dynamic features with static alternatives
-- Replace contact form with a static form service (Formspree, Web3Forms, etc.)
-- Verify fonts are self-hosted or loaded from a CDN
-- Minify CSS/JS if desired (optional)
-- Add `<meta>` tags, Open Graph, favicons where missing
+## Convenciones
 
----
+- Los enlaces internos siempre usan rutas absolutas desde la raíz: `/about/`, `/services/`
+- Los recursos van en `/assets/{css,js,images,fonts}/`
+- Sin markup de WordPress, query strings (`?ver=`) ni código de administración
+- Sin herramientas de compilación ni `package.json` a menos que se necesiten explícitamente
 
-## Phase 5 — Deploy
-
-### GitHub
-
-```bash
-git add .
-git commit -m "Initial static site"
-git push origin main
-```
-
-Enable **GitHub Pages** on the `main` branch (root `/`).
+## Despliegue
 
 ### Cloudflare Pages
 
-1. Connect the GitHub repo in the Cloudflare Pages dashboard
-2. Build command: *(none — pure static)*
-3. Output directory: `/` (root)
-4. Set custom domain: `hadronbit.com`
+1. Conectar el repositorio de GitHub en el panel de Cloudflare Pages
+2. Comando de compilación: *(ninguno)*
+3. Directorio de salida: `/`
+4. Configurar dominio personalizado: `hadronbit.com`
 
----
+### GitHub Pages
 
-## Phase 6 — Validate
+Activar en la rama `main` en la raíz `/`.
 
-- [ ] All pages load without 404
-- [ ] Images, fonts, and styles render correctly
-- [ ] Internal links work
-- [ ] Contact form submits correctly
-- [ ] Mobile responsive
-- [ ] Lighthouse score ≥ 90 on Performance / SEO / Accessibility
-- [ ] `_headers` file sets correct cache-control and security headers
+## Edición con Claude Cowork
 
----
+Puedes editar este sitio de forma conversacional usando **Claude Cowork** — una app de escritorio con inteligencia artificial que lee y edita tus archivos de código directamente a partir de instrucciones en lenguaje natural.
 
-## Tools used
+### Descarga y creación de cuenta
 
-| Tool | Purpose |
-|------|---------|
-| `wget` | Crawl and download the live site |
-| Cloudflare Pages | Hosting |
-| GitHub | Version control + CI |
-| Formspree / Web3Forms | Static contact form backend |
+1. **Descargar** — ingresa a [claude.ai/download](https://claude.ai/download) y descarga la app de escritorio de Claude para tu sistema operativo (Mac o Windows).
 
----
+2. **Crear una cuenta** — abre la app y haz clic en **Registrarse**. Puedes registrarte con un correo electrónico o una cuenta de Google. Hay un plan gratuito disponible; el plan Pro desbloquea límites de uso más altos.
 
-## Current status
+3. **Activar Claude Cowork** — una vez que hayas iniciado sesión, abre **Configuración → Claude Cowork** y actívalo. Esto le permite a la app leer y editar archivos en tu computador.
 
-- [x] Phase 1 — Scrape *(scraped output in `scraped/`, gitignored)*
-- [~] Phase 2 — Audit & clean *(5 pages committed: home, cybersec audit, cybersec services, IT services, contact — still contain `wp-content/` asset references)*
-- [~] Phase 3 — Restructure *(clean-URL folder layout in place; `wp-content/` and `wp-includes/` dirs still committed; no `/assets/` folder yet; missing `_redirects`, `_headers`, `404.html`)*
-- [ ] Phase 4 — Fix & polish *(links not yet updated; contact form not yet replaced)*
-- [ ] Phase 5 — Deploy
-- [ ] Phase 6 — Validate
+### Requisitos previos
 
-### Pages committed
+- Claude Cowork activado (ver arriba)
+- Git instalado y configurado con acceso a este repositorio
+- El repositorio clonado localmente
 
-| URL slug | File |
-|----------|------|
-| `/` | `index.html` |
-| `/auditoria-de-ciberseguridad-diagnostico-empresarial/` | `auditoria-de-ciberseguridad-diagnostico-empresarial/index.html` |
-| `/serviciosciberseguridad/` | `serviciosciberseguridad/index.html` |
-| `/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/` | `servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/index.html` |
-| `/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/` | `contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/index.html` |
+### Flujo de trabajo
 
-### Next steps
+1. **Abrir el proyecto** — en Claude Cowork, abre una nueva conversación y agrega la carpeta del repositorio como contexto (arrastra la carpeta o usa el botón **Agregar archivos**).
 
-1. Move `wp-content/uploads/` images → `/assets/images/` and update all `src`/`href` references
-2. Move theme CSS → `/assets/css/`, JS → `/assets/js/`, fonts → `/assets/fonts/`
-3. Delete `wp-content/`, `wp-includes/`, `cdn-cgi/` from the repo
-4. Add `_redirects`, `_headers`, `404.html`
-5. Replace the contact form with Formspree or Web3Forms endpoint
+2. **Describir el cambio** — Claude Cowork lee los archivos HTML y hace las ediciones directamente. Ejemplos:
+   - *"Actualiza el titular principal de la página de inicio"*
+   - *"Agrega una nueva tarjeta de servicio a la página de ciberseguridad"*
+   - *"Cambia el correo de contacto en el pie de página de todas las páginas"*
+
+3. **Revisar el diff** — Claude Cowork muestra los cambios antes de guardarlos. Aprueba o rechaza cada modificación.
+
+4. **Sincronizar con GitHub** — cuando estés satisfecho con los cambios, haz commit y push:
+   ```bash
+   git add .
+   git commit -m "tu mensaje"
+   git push origin main
+   ```
+   O pídeselo a Claude Cowork: *"Haz commit de estos cambios con el mensaje 'actualizar texto del hero'"*
+
+5. **Desplegar** — hacer push a `main` dispara un despliegue automático en Cloudflare Pages (no se necesita ningún paso adicional).
+
+### Consejos
+
+- Puedes editar varias páginas en una misma sesión — simplemente sigue describiendo los cambios.
+- Para deshacer un cambio antes de hacer commit: `git checkout -- <archivo>` o pide *"Revierte ese último cambio"*.
+- Para previsualizar localmente, abre cualquier `index.html` en el navegador o levanta un servidor simple:
+  ```bash
+  npx serve .
+  ```
+
+## Formulario de contacto
+
+Los formularios de WordPress fueron reemplazados por un proveedor estático (Formspree o Web3Forms). Las URLs del atributo `action` no deben contener claves de API en el código fuente.
+
+## Scraping (referencia)
+
+El sitio original fue descargado con `wget`. El resultado sin procesar está en `.gitignore` bajo `scraped/`.
+
+```bash
+wget --mirror --convert-links --adjust-extension --page-requisites \
+     --no-parent --wait=1 -P scraped/ https://hadronbit.com/
+```
