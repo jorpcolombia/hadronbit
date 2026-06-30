@@ -267,6 +267,23 @@
       text-align: center;
       color: #fff;
     }
+    .whatsapp-bubble {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+      z-index: 999;
+      transition: transform .2s;
+    }
+    .whatsapp-bubble:hover { transform: scale(1.08); }
+    .whatsapp-bubble i { color: #fff; font-size: 32px; }
 
     /* ── CLIENT LOGOS ── */
     .clients {
@@ -505,7 +522,7 @@
       <p>
         <a href="/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/">Formulario de Contacto</a><br/>
         <strong style="color:#fff;">Dirección:</strong> Carrera 11 # 90-07 OF 509<br/>
-        <strong style="color:#fff;">Cel:</strong> +57 323 220 03 19<br/>
+        <strong style="color:#fff;">Cel:</strong> <a href="tel:+573232200319">+57 323 220 03 19</a><br/>
         Bogotá, Colombia
       </p>
     </div>
@@ -538,7 +555,10 @@
     showSlide(n);
     timer = setInterval(() => moveSlide(1), 5000);
   }
-  
+
 </script>
+<a class="whatsapp-bubble" href="https://wa.me/573232200319?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener" aria-label="Chatea por WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 </body>
 </html>
