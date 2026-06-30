@@ -268,6 +268,61 @@
       color: #888;
     }
 
+    /* ── CLIENT LOGOS ── */
+    .clients {
+      padding: 60px 20px;
+      background: #f8f8f8;
+      text-align: center;
+    }
+    .clients h2 {
+      font-size: clamp(18px, 3vw, 26px);
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 36px;
+    }
+    .logos-track-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+    .logos-track-wrap::before,
+    .logos-track-wrap::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+    }
+    .logos-track-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #f8f8f8, transparent);
+    }
+    .logos-track-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #f8f8f8, transparent);
+    }
+    .logos-track {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      width: max-content;
+      animation: scroll-logos 35s linear infinite;
+    }
+    .logos-track:hover { animation-play-state: paused; }
+    .logos-track img {
+      height: 70px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(60%);
+      opacity: .75;
+      transition: filter .3s, opacity .3s;
+    }
+    .logos-track img:hover { filter: grayscale(0); opacity: 1; }
+    @keyframes scroll-logos {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 700px) {
       .nav-menu {
@@ -384,6 +439,58 @@
       <p style="margin-top:8px;">Analizamos tu información y controles para identificar estas brechas y definir acciones que permitan proteger el negocio y fortalecer su operación.</p>
     </div>
   </a>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="clients">
+  <h2>Empresas que confían en nosotros</h2>
+  <div class="logos-track-wrap">
+    <div class="logos-track">
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/makler-1-150x150.png" alt="Makler"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/foccus-150x150.png" alt="Foccus"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/mobile-150x150.jpg" alt="Mobile"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/hamburgo-150x150.jpg" alt="Hamburgo"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/ambi-1-150x150.png" alt="Ambire"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-2-150x150.jpg" alt="GT"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-2-2-150x150.png" alt="Fenix"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/alianza-1-150x150.png" alt="Alianza"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/jav-1-150x150.jpg" alt="Javeriana"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-2-150x150.png" alt="Divina"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/russell-1-150x150.jpg" alt="Russell"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/santo-1-150x150.png" alt="Santo"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/mesa-1-150x150.png" alt="Mesa de Yeguas"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/terra-1-150x150.jpg" alt="Terramarte"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/soco-1-150x150.png" alt="Socotec"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-1-1-150x150.png" alt="Balbamo"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/cone-1-150x150.png" alt="Conexig"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-1-150x150.jpg" alt="Neogen"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-3-150x150.jpg" alt="Novopayment"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/dicermex-1-150x150.png" alt="Dicermex"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-150x150.jpg" alt="Emprendu"/>
+      <!-- duplicate set for seamless loop -->
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/makler-1-150x150.png" alt="Makler"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/foccus-150x150.png" alt="Foccus"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/mobile-150x150.jpg" alt="Mobile"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/hamburgo-150x150.jpg" alt="Hamburgo"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/06/ambi-1-150x150.png" alt="Ambire"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-2-150x150.jpg" alt="GT"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-2-2-150x150.png" alt="Fenix"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/alianza-1-150x150.png" alt="Alianza"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/jav-1-150x150.jpg" alt="Javeriana"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-2-150x150.png" alt="Divina"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/russell-1-150x150.jpg" alt="Russell"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/santo-1-150x150.png" alt="Santo"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/mesa-1-150x150.png" alt="Mesa de Yeguas"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/terra-1-150x150.jpg" alt="Terramarte"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/soco-1-150x150.png" alt="Socotec"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-1-1-150x150.png" alt="Balbamo"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/cone-1-150x150.png" alt="Conexig"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-1-150x150.jpg" alt="Neogen"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-3-150x150.jpg" alt="Novopayment"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/dicermex-1-150x150.png" alt="Dicermex"/>
+      <img src="https://cdn.hadronbit.com/wp-content/uploads/2026/05/descarga-150x150.jpg" alt="Emprendu"/>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->

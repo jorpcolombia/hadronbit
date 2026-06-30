@@ -15,6 +15,15 @@ No framework, no build step. Pure HTML/CSS/JS files that deploy as-is.
 - Do not add WordPress-specific markup, query strings (`?ver=`), or admin cruft
 - Do not add build tools, bundlers, or npm packages unless explicitly requested
 
+## Current project state (as of 2026-06-30)
+
+Scraping is complete. Five pages are committed in clean-URL layout (`/page-slug/index.html`).
+**Active work: asset restructuring.** Pages still reference `wp-content/uploads/` and
+`wp-content/themes/customify/assets/` paths. The `wp-content/`, `wp-includes/`, and `cdn-cgi/`
+directories are committed and must be removed once assets are migrated to `/assets/`.
+
+Still missing: `_redirects`, `_headers`, `404.html`, contact form replacement.
+
 ## Scraping workflow
 
 Raw scraped output lives in `scraped/hadronbit.com/` (gitignored — large binary assets).

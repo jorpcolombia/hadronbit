@@ -125,9 +125,27 @@ Enable **GitHub Pages** on the `main` branch (root `/`).
 
 ## Current status
 
-- [ ] Phase 1 — Scrape
-- [ ] Phase 2 — Audit & clean
-- [ ] Phase 3 — Restructure
-- [ ] Phase 4 — Fix & polish
+- [x] Phase 1 — Scrape *(scraped output in `scraped/`, gitignored)*
+- [~] Phase 2 — Audit & clean *(5 pages committed: home, cybersec audit, cybersec services, IT services, contact — still contain `wp-content/` asset references)*
+- [~] Phase 3 — Restructure *(clean-URL folder layout in place; `wp-content/` and `wp-includes/` dirs still committed; no `/assets/` folder yet; missing `_redirects`, `_headers`, `404.html`)*
+- [ ] Phase 4 — Fix & polish *(links not yet updated; contact form not yet replaced)*
 - [ ] Phase 5 — Deploy
 - [ ] Phase 6 — Validate
+
+### Pages committed
+
+| URL slug | File |
+|----------|------|
+| `/` | `index.html` |
+| `/auditoria-de-ciberseguridad-diagnostico-empresarial/` | `auditoria-de-ciberseguridad-diagnostico-empresarial/index.html` |
+| `/serviciosciberseguridad/` | `serviciosciberseguridad/index.html` |
+| `/servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/` | `servicios-it-para-empresas-en-colombia-outsourcing-soporte-y-microsoft-365/index.html` |
+| `/contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/` | `contacto-para-servicios-de-tecnologia-y-ciberseguridad-en-colombia/index.html` |
+
+### Next steps
+
+1. Move `wp-content/uploads/` images → `/assets/images/` and update all `src`/`href` references
+2. Move theme CSS → `/assets/css/`, JS → `/assets/js/`, fonts → `/assets/fonts/`
+3. Delete `wp-content/`, `wp-includes/`, `cdn-cgi/` from the repo
+4. Add `_redirects`, `_headers`, `404.html`
+5. Replace the contact form with Formspree or Web3Forms endpoint
